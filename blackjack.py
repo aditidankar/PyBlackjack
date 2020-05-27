@@ -2,6 +2,8 @@
 A game of blackjack developed using Python
 '''
 
+import random
+
 STARTING_AMOUNT = 0
 
 class Bankroll():
@@ -48,3 +50,22 @@ class Bankroll():
         self.total = self.total + self.bet # 100+100=200
         print('Total after push remains equal to the previous total ', self.total)
         self.bet = 0
+
+
+class Cards():
+    '''
+    This class contains the suits and ranks
+    '''
+
+    def __init__(self):
+        self.suits = ('Spades \u2660', 'Hearts \u2665', 'Diamonds \u2666', 'Clubs \u2663')
+        self.ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
+        self.values = {
+        'Two':2, 'Three':3, 'Four':4, 'Five':5,
+        'Six':6, 'Seven':7, 'Eight':8, 'Nine':9,
+        'Ten':10, 'Jack':10, 'Queen':10, 'King':10,
+        'Ace':11
+        }
+
+    def __str__(self):
+        return random.choice(self.ranks) + ' of ' + random.choice(self.suits)
