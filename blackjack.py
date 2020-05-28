@@ -89,3 +89,16 @@ class Deck():
 
     def shuffle(self):
         random.shuffle(self.deck)
+
+
+class Deal():
+    '''
+    This class deals the cards to the dealer and the player
+    '''
+
+    def __init__(self):
+        self.deck_of_cards = Deck()
+        self.deck_of_cards.shuffle()
+
+    def deal_card(self):
+        return self.deck_of_cards.deck.pop()
