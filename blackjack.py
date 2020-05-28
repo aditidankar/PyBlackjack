@@ -69,3 +69,23 @@ class Cards():
 
     def __str__(self):
         return random.choice(self.ranks) + ' of ' + random.choice(self.suits)
+
+
+class Deck():
+    '''
+    This class instantiates a deck of 52 Cards
+    '''
+
+    def __init__(self):
+        card = Cards()
+        self.deck = []
+
+        for suit in card.suits:
+            for rank in card.ranks:
+                self.deck.append(rank + ' of ' + suit )
+
+    def __str__(self):
+        return "This is a deck of 52 cards"
+
+    def shuffle(self):
+        random.shuffle(self.deck)
