@@ -6,6 +6,9 @@ import random
 
 STARTING_AMOUNT = 0
 
+
+print('\nWelcome to Blackjack!\n')
+
 class Bankroll():
     '''
     Class to keep count of the chips available to the player
@@ -15,16 +18,14 @@ class Bankroll():
         self.total = total # 200
         self.bet = bet # 100
 
-        print('Your total amount is ', self.total)
-        print('You bet ', self.bet)
-
-
     def check_bankroll(self):
         if self.bet > self.total:
+            print('Your betting amount cannot be greater than your total amount', self.total)
             return True
         else:
             self.total = self.total - self.bet # 200-100=100
-            print('Your total amout after deducting the betting amount is ', self.total)
+            print('\nYour betting amount is', self.bet)
+            print('Your total amout after deducting the betting amount is', self.total)
             return False
 
     def win_bet(self, blackjack=False):
@@ -83,6 +84,8 @@ class Deck():
         for suit in card.suits:
             for rank in card.ranks:
                 self.deck.append(rank + ' of ' + suit )
+
+        print(self.deck)
 
     def __str__(self):
         return "This is a deck of 52 cards"
