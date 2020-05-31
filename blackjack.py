@@ -16,6 +16,7 @@ class Bankroll():
         self.bet = bet # 100
 
     def check_bankroll(self):
+        # Checks whether the betting amount is valid
         if self.bet > self.total:
             print('Your betting amount cannot be greater than your total amount', self.total)
             return True
@@ -26,6 +27,7 @@ class Bankroll():
             return False
 
     def win_bet(self, blackjack=False):
+        # When the player wins the hand
         # A blackjack win pays 3:2, a non-blackjack win pays 1:1
         if blackjack:
             win = self.bet + 1.5 * self.bet # 100+150=250
@@ -41,10 +43,12 @@ class Bankroll():
             self.bet = 0
 
     def lose_bet(self):
+        # When the player loses the hand
         print('Your total after losing this hand is ', self.total)
         self.bet = 0
 
     def push_bet(self):
+        # When both the player and the dealer has same hands
         self.total = self.total + self.bet # 100+100=200
         print('Total after push remains equal to the previous total ', self.total)
         self.bet = 0
@@ -66,6 +70,7 @@ class Cards():
         }
 
     def __str__(self):
+        # Prints a random card from the deck when print statement is used on the class
         return random.choice(self.ranks) + ' of ' + random.choice(self.suits)
 
 
@@ -78,6 +83,7 @@ class Deck():
         self.card = Cards()
         self.deck = []
 
+        # Forms a deck of 52 cards
         for suit in self.card.suits:
             for rank in self.card.ranks:
                 self.deck.append(rank + ' of ' + suit )
@@ -86,6 +92,7 @@ class Deck():
         return "This is a deck of 52 cards"
 
     def shuffle(self):
+        # Shuffles the deck
         random.shuffle(self.deck)
 
 
@@ -99,4 +106,5 @@ class Deal():
         self.deck_of_cards.shuffle()
 
     def deal_card(self):
+        # Removes the first card from the shuffled deck whenever there is a draw
         return self.deck_of_cards.deck.pop()
