@@ -4,10 +4,7 @@ A game of blackjack developed using Python
 
 import random
 
-STARTING_AMOUNT = 0
-
-
-print('\nWelcome to Blackjack!\n')
+print('\nWelcome to Blackjack!')
 
 class Bankroll():
     '''
@@ -25,7 +22,7 @@ class Bankroll():
         else:
             self.total = self.total - self.bet # 200-100=100
             print('\nYour betting amount is', self.bet)
-            print('Your total amout after deducting the betting amount is', self.total)
+            print('Your remaining amout after deducting the betting amount is', self.total)
             return False
 
     def win_bet(self, blackjack=False):
@@ -78,14 +75,12 @@ class Deck():
     '''
 
     def __init__(self):
-        card = Cards()
+        self.card = Cards()
         self.deck = []
 
-        for suit in card.suits:
-            for rank in card.ranks:
+        for suit in self.card.suits:
+            for rank in self.card.ranks:
                 self.deck.append(rank + ' of ' + suit )
-
-        print(self.deck)
 
     def __str__(self):
         return "This is a deck of 52 cards"
