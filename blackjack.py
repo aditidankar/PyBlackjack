@@ -31,26 +31,27 @@ class Bankroll():
         # A blackjack win pays 3:2, a non-blackjack win pays 1:1
         if blackjack:
             win = self.bet + 1.5 * self.bet # 100+150=250
-            print('You won ', win)
+            print('\nYou won', win)
             self.total = self.total + win # 100+250=350
-            print('Your total amout after winning this hand is ', self.total)
+            print('Your total amout after winning this hand is', self.total)
             self.bet = 0
         else:
             win = self.bet + self.bet # 100+100=200
-            print('You won ', win)
+            print('\nYou won', win)
             self.total = self.total + win # 100+200=300
-            print('Your total amout after winning this hand is ', self.total)
+            print('Your total amout after winning this hand is', self.total)
             self.bet = 0
 
     def lose_bet(self):
         # When the player loses the hand
-        print('Your total after losing this hand is ', self.total)
+        print('\nYou lost', self.bet)
+        print('Your total after losing this hand is', self.total)
         self.bet = 0
 
     def push_bet(self):
         # When both the player and the dealer has same hands
         self.total = self.total + self.bet # 100+100=200
-        print('Total after push remains equal to the previous total ', self.total)
+        print('Total after push remains equal to the previous total', self.total)
         self.bet = 0
 
 
@@ -107,4 +108,7 @@ class Deal():
 
     def deal_card(self):
         # Removes the first card from the shuffled deck whenever there is a draw
-        return self.deck_of_cards.deck.pop()
+        try:
+            return self.deck_of_cards.deck.pop()
+        except:
+            print('No more cards left!')
