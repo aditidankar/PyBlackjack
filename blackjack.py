@@ -51,7 +51,7 @@ class Bankroll():
     def push_bet(self):
         # When both the player and the dealer has same hands
         self.total = self.total + self.bet # 100+100=200
-        print('Total after push remains equal to the previous total', self.total)
+        print('\nTotal after push remains equal to the previous total', self.total)
         self.bet = 0
 
 
@@ -111,4 +111,4 @@ class Deal():
         try:
             return self.deck_of_cards.deck.pop()
         except:
-            print('No more cards left!')
+            print('\nNo more cards left!')
