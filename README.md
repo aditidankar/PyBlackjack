@@ -1,4 +1,4 @@
-# PyBlackjack
+# PyBlackjack (Work in progress, July 2020)
 
 A simple game of blackjack developed using Python. The only options available to the player is hitting and standing. The options of splitting or doubling down is not available.
 
